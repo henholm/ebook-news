@@ -1,8 +1,14 @@
 #### Install terminal-notifier to show MacOS notifications.
 `brew install terminal-notifier`
 
+#### Schedule the shell script to run, e.g., daily with a .plist file.
+`com.user.updateNews.plist`
 
-#### Set the script up as a cron job running every Saturday at 06:00 AM.
+#### symlink the .plist file in this directory to a file in ~/Library/LaunchAgents
+` ln -s com.user.updateNews.plist ~/Library/LaunchAgents/com.user.updateNews.plist `
+
+
+#### Alternatively, set up the script as a cron job, e.g., running every Saturday at 06:00 AM.
 ` $ sudo crontab -u $(whoami) -e `
 
 ` Password: `
@@ -20,3 +26,4 @@
 ` $ crontab -l `
 
 ` 0 6 * * 6 ~/path-to-this-directory/update-news.sh >> ~/path-to-this-directory/out.log 2>&1 `
+
